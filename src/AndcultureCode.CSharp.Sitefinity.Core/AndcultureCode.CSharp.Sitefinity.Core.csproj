@@ -322,7 +322,7 @@
     <Compile Include="Interfaces\IDynamicContentRepositoryConductor.cs" />
     <Compile Include="JsonSerialization\Converters\RedirectPageConverter.cs" />
     <Compile Include="JsonSerialization\Converters\PageTypeConverter.cs" />
-    <Compile Include="JsonSerialization\Converters\SitefinityEnumConverter.cs" />
+    <Compile Include="JsonSerialization\Converters\SitefinityChoiceFieldEnumConverter.cs" />
     <Compile Include="Enumerations\CanonicalUrlBehaviour.cs" />
     <Compile Include="Enumerations\LocalizationStrategy.cs" />
     <Compile Include="Enumerations\PageType.cs" />
@@ -349,7 +349,7 @@
     <Compile Include="Models\Content\ChildSitefinityContentDto.cs" />
     <Compile Include="Models\Content\SitefinityContentDto.cs" />
     <Compile Include="Models\Services\AuthenticateResponse.cs" />
-    <Compile Include="Models\Services\ODataServiceResponse.cs" />
+    <Compile Include="Models\Services\ODataServiceGetResponse.cs" />
     <Compile Include="Models\Content\SitefinityContent.cs" />
     <Compile Include="Models\Services\RestResponseResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
