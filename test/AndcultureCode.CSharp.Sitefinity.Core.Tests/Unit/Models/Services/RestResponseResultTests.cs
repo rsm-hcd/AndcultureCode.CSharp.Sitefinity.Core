@@ -8,6 +8,8 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Model.Services
 {
     public class RestResponseResultTests : BaseUnitTest
     {
+        #region WasExpectedStatusCode
+
         [Fact]
         public void WasExpectedStatusCode_Given_RestResponse_StatusCode_Matches_ExpectedStatusCode_Returns_True()
         {
@@ -39,6 +41,10 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Model.Services
             restResponseResult.WasExpectedStatusCode.ShouldBeFalse();
         }
 
+        #endregion WasExpectedStatusCode
+
+        #region WasUnexpectedStatusCode
+
         [Fact]
         public void WasUnexpectedStatusCode_Given_RestResponse_StatusCode_Matches_ExpectedStatusCode_Returns_False()
         {
@@ -69,5 +75,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Model.Services
             // Act & Assert
             restResponseResult.WasUnexpectedStatusCode.ShouldBeTrue();
         }
+
+        #endregion WasUnexpectedStatusCode
     }
 }

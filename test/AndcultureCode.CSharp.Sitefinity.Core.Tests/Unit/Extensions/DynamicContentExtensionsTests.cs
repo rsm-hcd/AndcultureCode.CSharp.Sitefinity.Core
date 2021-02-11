@@ -8,6 +8,8 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
 {
     public class DynamicContentExtensionsTests : BaseUnitTest
     {
+        #region Test Classes
+
         public class TestValidClass
         {
             public long TestLongProperty { get; set; }
@@ -19,11 +21,11 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
 
         public class TestInvalidClass
         {
-            public long TestPropertyWithDifferentName { get; set; }
+            public long TestPropertyWithDifferentName { get; set; } // Name is different, shouldn't map.
             public DateTimeOffset? TestDateTimeOffsetProperty { get; set; } // Type is different, shouldn't map.
         }
 
-        // Usually, these types are dynamically defined through the Sitefinity UI
+        // Usually, these classes are dynamically defined through the Sitefinity UI
         // vs. in code, but for the purposes of testing, we must define them
         // in our test class.
         public class TestDynamicClass : DynamicContent
@@ -34,6 +36,8 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             public DateTimeOffset TestDateTimeOffsetProperty { get; set; }
             public DateTimeOffset? TestNullableDateTimeOffsetProperty { get; set; }
         }
+
+        #endregion Test Classes
 
         [Fact]
         public void MapTo_Given_Null_DynamicContent_Throws_ArgumentNullException()
