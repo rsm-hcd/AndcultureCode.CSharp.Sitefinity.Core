@@ -1,6 +1,10 @@
 # AndcultureCode.CSharp.Sitefinity.Core
 Common interfaces, patterns, and utilities for Sitefinity projects used by andculture engineering
 
+## Sitefinity Version Support
+- Compatibility: 13+
+- Tested with: 13.2 (build 7521)
+
 ## Getting Started
 
 This package is installed via NuGet
