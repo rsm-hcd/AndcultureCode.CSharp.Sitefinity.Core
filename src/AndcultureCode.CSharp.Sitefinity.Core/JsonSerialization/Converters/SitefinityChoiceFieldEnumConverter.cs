@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 namespace AndcultureCode.CSharp.Sitefinity.Core.JsonSerialization.Converters
 {
     /// <summary>
-    /// Responsible for generically converting enums into values that correspond with how Sitefinity handles
-    /// ChoiceField indices. See https://www.progress.com/documentation/sitefinity-cms/choicefield-operations
+    /// Responsible for generically converting enums based on ChoiceFields into values that correspond with
+    /// how Sitefinity handles ChoiceField indices. See https://www.progress.com/documentation/sitefinity-cms/choicefield-operations
     /// for more information on how the ChoiceField works through the OData web services.
-    /// 
+    ///
     /// Developer Note: This converter operates under the assumption that the specified Enum has values starting
     /// at 1 NOT 0.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class SitefinityEnumConverter<T> : JsonConverter where T : struct, IConvertible
+    public class SitefinityChoiceFieldEnumConverter<T> : JsonConverter where T : struct, IConvertible
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
