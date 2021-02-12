@@ -12,7 +12,7 @@ using System.Web;
 namespace AndcultureCode.CSharp.Sitefinity.Core.Services
 {
     /// <summary>
-    /// Represents the out of the box (OOB) Sitefinity OData media service available
+    /// Represents the out of the box  Sitefinity OData media service available
     /// </summary>
     public abstract class CoreMediaODataServices<TModel> : ODataServices<TModel>
         where TModel : ISitefinityContentDto

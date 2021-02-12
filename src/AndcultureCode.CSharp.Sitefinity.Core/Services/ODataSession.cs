@@ -1,4 +1,4 @@
-﻿using AndcultureCode.CSharp.Sitefinity.Core.Models.Configuration;
+﻿using AndcultureCode.CSharp.Sitefinity.Core.Interfaces;
 using AndcultureCode.CSharp.Sitefinity.Core.Models.Services;
 using Newtonsoft.Json;
 using RestSharp;

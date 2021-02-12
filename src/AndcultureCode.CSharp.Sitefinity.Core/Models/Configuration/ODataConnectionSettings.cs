@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AndcultureCode.CSharp.Sitefinity.Core.Interfaces;
+using AndcultureCode.CSharp.Sitefinity.Core.Utilities;
+using System;
 using System.Configuration;
 
 namespace AndcultureCode.CSharp.Sitefinity.Core.Models.Configuration
@@ -30,51 +32,46 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Models.Configuration
             Scope = "";
             Username = "";
 
-            var baseUrlValue = GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__BASEURL");
+            var baseUrlValue = EnvironmentUtils.GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__BASEURL");
             if (baseUrlValue != null)
             {
                 BaseUrl = baseUrlValue;
             }
-            var clientIDValue = GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__CLIENTID");
+            var clientIDValue = EnvironmentUtils.GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__CLIENTID");
             if (clientIDValue != null)
             {
                 ClientID = clientIDValue;
             }
-            var clientSecretValue = GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__CLIENTSECRET");
+            var clientSecretValue = EnvironmentUtils.GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__CLIENTSECRET");
             if (clientSecretValue != null)
             {
                 ClientSecret = clientSecretValue;
             }
-            var grantTypeValue = GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__GRANTTYPE");
+            var grantTypeValue = EnvironmentUtils.GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__GRANTTYPE");
             if (grantTypeValue != null)
             {
                 GrantType = grantTypeValue;
             }
-            var outputCacheAuthKeyValue = GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__OUTPUTCACHEAUTHKEY");
+            var outputCacheAuthKeyValue = EnvironmentUtils.GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__OUTPUTCACHEAUTHKEY");
             if (outputCacheAuthKeyValue != null)
             {
                 OutputCacheAuthKey = outputCacheAuthKeyValue;
             }
-            var passwordValue = GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__PASSWORD");
+            var passwordValue = EnvironmentUtils.GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__PASSWORD");
             if (passwordValue != null)
             {
                 Password = passwordValue;
             }
-            var scopeValue = GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__SCOPE");
+            var scopeValue = EnvironmentUtils.GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__SCOPE");
             if (scopeValue != null)
             {
                 Scope = scopeValue;
             }
-            var usernameValue = GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__USERNAME");
+            var usernameValue = EnvironmentUtils.GetValueFromEnvironmentVariableOrAppSettings("SITEFINITYODATATESTSETTINGS__USERNAME");
             if (usernameValue != null)
             {
                 Username = usernameValue;
             }
-        }
-
-        public string GetValueFromEnvironmentVariableOrAppSettings(string key)
-        {
-            return Environment.GetEnvironmentVariable(key) ?? ConfigurationManager.AppSettings[key];
         }
     }
 }

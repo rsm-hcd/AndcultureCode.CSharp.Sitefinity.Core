@@ -15,11 +15,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.JsonSerialization
 
             if (property.DeclaringType == typeof(SitefinityContent) && property.PropertyName == "Id")
             {
-                property.ShouldSerialize =
-                    instance =>
-                    {
-                        return false;
-                    };
+                property.ShouldSerialize = instance => false;
             }
 
             return property;

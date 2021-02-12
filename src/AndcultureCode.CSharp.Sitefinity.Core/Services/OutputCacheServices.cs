@@ -6,7 +6,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Services
     public class OutputCacheService
     {
         /// <summary>
-        /// The Output Cache API requires it's own authentication key.  This can be set using
+        /// The Output Cache API requires its own authentication key.  This can be set using
         /// the `SitefinityODataTestSettings.OutputCacheAuthKey` setting within `appsettings.json`
         /// </summary>
         public string AuthKey { get; set; }
@@ -34,9 +34,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Services
 
             request.AddHeader("SF_OUTPUTCACHE_AUTH", AuthKey);
 
-            IRestResponse response = client.Execute(request);
-
-            return response;
+            return client.Execute(request);
         }
     }
 }

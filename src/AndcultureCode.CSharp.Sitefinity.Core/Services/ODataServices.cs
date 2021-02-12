@@ -42,7 +42,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Services
         /// Creates a draft content item
         /// </summary>
         /// <param name="model"></param>
-        /// <returns>The response of the request wrapped in a RestResponseResult where ResultObject is the returned object with it's updated values</returns>
+        /// <returns>The response of the request wrapped in a RestResponseResult where ResultObject is the returned object with its updated values</returns>
         public RestResponseResult<TContent> CreateDraft(TContent model)
         {
             var body = JsonConvert.SerializeObject(model);
@@ -232,7 +232,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Services
         /// <param name="id">The Id of the content.</param>
         /// <param name="string">The name of the relationship.</param>
         /// <returns>The response of the request wrapped in a RestResponseResult where ResultObject is the returned related object list</returns>
-        public RestResponseResult<List<TRelatedContent>> GetRelatedMany<TRelatedContent>(Guid id, string relationshipName) where TRelatedContent : SitefinityContentDto
+        public RestResponseResult<List<TRelatedContent>> GetRelatedRecords<TRelatedContent>(Guid id, string relationshipName) where TRelatedContent : SitefinityContentDto
         {
             var requestUrl = $"{Settings.BaseUrl}{EndpointUrl}({id})/{relationshipName}";
 
@@ -258,7 +258,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Services
         /// <param name="id">The Id of the content.</param>
         /// <param name="string">The name of the relationship.</param>
         /// <returns>The response of the request wrapped in a RestResponseResult where ResultObject is the returned related object</returns>
-        public RestResponseResult<TRelatedContent> GetRelatedOne<TRelatedContent>(Guid id, string relationshipName) where TRelatedContent : SitefinityContentDto
+        public RestResponseResult<TRelatedContent> GetRelatedRecord<TRelatedContent>(Guid id, string relationshipName) where TRelatedContent : SitefinityContentDto
         {
             var requestUrl = $"{Settings.BaseUrl}{EndpointUrl}({id})/{relationshipName}";
 

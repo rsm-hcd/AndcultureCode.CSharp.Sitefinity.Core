@@ -4,7 +4,7 @@ using AndcultureCode.CSharp.Sitefinity.Core.Models.Configuration;
 namespace AndcultureCode.CSharp.Sitefinity.Core.Services.Images
 {
     /// <summary>
-    /// Represents the out of the box (OOB) Sitefinity OData album service available
+    /// Represents the out of the box  Sitefinity OData album service available
     /// </summary>
     public abstract class CoreAlbumODataServices<TModel> : ODataServices<TModel>
         where TModel : ISitefinityContentDto

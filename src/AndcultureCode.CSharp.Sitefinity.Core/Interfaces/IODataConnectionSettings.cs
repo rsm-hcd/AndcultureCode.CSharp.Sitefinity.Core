@@ -1,4 +1,4 @@
-﻿namespace AndcultureCode.CSharp.Sitefinity.Core.Models.Configuration
+﻿namespace AndcultureCode.CSharp.Sitefinity.Core.Interfaces
 {
     public interface IODataConnectionSettings
     {

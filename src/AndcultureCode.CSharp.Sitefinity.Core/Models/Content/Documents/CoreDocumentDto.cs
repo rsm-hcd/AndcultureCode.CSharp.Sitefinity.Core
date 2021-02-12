@@ -17,8 +17,8 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Models.Content.Documents
         public string Parts { get; set; }
         public List<Guid> Tags { get; set; }
         public string ThumbnailUrl { get; set; }
-        public long TotalSize { get; set; }
         public string Title { get; set; }
+        public long TotalSize { get; set; }
         public string Url { get; set; }
     }
 }

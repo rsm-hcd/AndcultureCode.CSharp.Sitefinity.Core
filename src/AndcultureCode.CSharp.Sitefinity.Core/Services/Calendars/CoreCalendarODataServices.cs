@@ -4,7 +4,7 @@ using AndcultureCode.CSharp.Sitefinity.Core.Models.Configuration;
 namespace AndcultureCode.CSharp.Sitefinity.Core.Services.Calendars
 {
     /// <summary>
-    /// Represents the out of the box (OOB) Sitefinity OData calendar service available
+    /// Represents the out of the box  Sitefinity OData calendar service available
     /// </summary>
     public abstract class CoreCalendarODataServices<TModel> : ODataServices<TModel>
         where TModel : ISitefinityContentDto

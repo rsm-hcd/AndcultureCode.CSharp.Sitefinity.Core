@@ -7,7 +7,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Models.Services
         [JsonProperty("access_token")]
         public string AccessToken { get; set; }
         /// <summary>
-        /// The number of seconds will Sitefinity expires the session.
+        /// The number of seconds until Sitefinity will expire the session.
         /// Defaults to 3,600 seconds (1 hour)
         /// </summary>
         [JsonProperty("expires_in")]

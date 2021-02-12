@@ -318,13 +318,11 @@
     <Compile Include="Constants\CountryCodes.cs" />
     <Compile Include="Constants\RequestErrorKeys.cs" />
     <Compile Include="Constants\SitefinityConstants.cs" />
+    <Compile Include="Constants\SitefinityRestResponseConstants.cs" />
     <Compile Include="Extensions\DynamicContentExtensions.cs" />
     <Compile Include="Interfaces\IDynamicContentRepositoryConductor.cs" />
     <Compile Include="JsonSerialization\Converters\RedirectPageConverter.cs" />
     <Compile Include="JsonSerialization\Converters\PageTypeConverter.cs" />
-    <Compile Include="JsonSerialization\Converters\SitefinityChoiceFieldEnumConverter.cs" />
-    <Compile Include="Enumerations\CanonicalUrlBehaviour.cs" />
-    <Compile Include="Enumerations\LocalizationStrategy.cs" />
     <Compile Include="Enumerations\PageType.cs" />
     <Compile Include="Enumerations\RedirectPage.cs" />
     <Compile Include="Extensions\RestResponseExtensions.cs" />
@@ -368,6 +366,7 @@
     <Compile Include="Services\ODataSession.cs" />
     <Compile Include="Services\OutputCacheServices.cs" />
     <Compile Include="Services\Pages\CorePageODataServices.cs" />
+    <Compile Include="Utilities\EnvironmentUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -4,7 +4,7 @@ using AndcultureCode.CSharp.Sitefinity.Core.Models.Configuration;
 namespace AndcultureCode.CSharp.Sitefinity.Core.Services.Documents
 {
     /// <summary>
-    /// Represents the out of the box (OOB) Sitefinity OData document library service available
+    /// Represents the out of the box  Sitefinity OData document library service available
     /// </summary>
     public abstract class CoreDocumentLibraryODataServices<TModel> : ODataServices<TModel>
         where TModel : ISitefinityContentDto

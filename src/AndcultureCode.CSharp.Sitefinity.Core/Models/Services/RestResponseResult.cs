@@ -11,13 +11,13 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Models.Services
         public HttpStatusCode ExpectedStatusCode { get; }
 
         /// <summary>
-        /// Provides the actual rest response data in it's original format
+        /// Provides the actual rest response data in its original format
         /// </summary>
         public IRestResponse RestResponse { get; }
 
         /// <summary>
         /// Indicates whether the RestResponse's StatusCode was of the expected type after the request was made
-        /// and it's data value was returned
+        /// and its data value was returned
         /// </summary>
         public bool WasExpectedStatusCode => ExpectedStatusCode == RestResponse.StatusCode;
         public bool WasUnexpectedStatusCode => !WasExpectedStatusCode;

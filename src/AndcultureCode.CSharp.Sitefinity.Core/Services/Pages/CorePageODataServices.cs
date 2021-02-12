@@ -4,7 +4,7 @@ using AndcultureCode.CSharp.Sitefinity.Core.Models.Configuration;
 namespace AndcultureCode.CSharp.Sitefinity.Core.Services.Pages
 {
     /// <summary>
-    /// Represents the out of the box (OOB) Sitefinity OData page service available
+    /// Represents the out of the box  Sitefinity OData page service available
     /// </summary>
     public abstract class CorePageODataServices<TModel> : ODataServices<TModel>
         where TModel : ISitefinityContentDto

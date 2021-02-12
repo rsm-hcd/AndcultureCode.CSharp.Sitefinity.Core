@@ -9,11 +9,9 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.JsonSerialization.Converters
     /// </summary>
     public class RedirectPageConverter : JsonConverter
     {
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override bool CanConvert(Type objectType)
         {
-            long convertedValue = ((RedirectPage)value).GetHashCode();
-
-            writer.WriteValue(convertedValue.ToString("d"));
+            return objectType == typeof(RedirectPage);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -21,9 +19,11 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.JsonSerialization.Converters
             return reader.Value != null ? Enum.Parse(typeof(RedirectPage), reader.Value.ToString()) : null;
         }
 
-        public override bool CanConvert(Type objectType)
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            return objectType == typeof(RedirectPage);
+            long convertedValue = ((RedirectPage)value).GetHashCode();
+
+            writer.WriteValue(convertedValue.ToString("d"));
         }
     }
 }

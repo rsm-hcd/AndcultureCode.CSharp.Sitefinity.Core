@@ -10,15 +10,18 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
 {
     public static class DynamicContentExtensions
     {
+        #region Public Properties
+
         public const char INCLUDE_PROPS_PATH_SEPARATOR = ',';
         public const char INCLUDE_PROPS_ITEM_SEPARATOR = '.';
 
+        #endregion Public Properties
+
+        #region Public Methods
+
         // This overload is used for LINQ expressions when we don't want to include
         // anything, as you can't have optional params in LINQ expressions.
-        public static T MapTo<T>(this DynamicContent content) where T: new()
-        {
-            return content.MapTo<T>(null);
-        }
+        public static T MapTo<T>(this DynamicContent content) where T: new() => content.MapTo<T>(null);
 
         /// <summary>
         /// Maps a DynamicContent object to a custom model representing that dynamic content.
@@ -79,6 +82,10 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
             return mappedItem;
         }
 
+        #endregion Public Methods
+
+        #region Private Methods
+
         private static object GetRelatedContent(DynamicContent content, PropertyInfo property, string includeString)
         {
             var relatedContent = content.GetRelatedItems(property.PropertyType.Name)?.Cast<DynamicContent>()?.FirstOrDefault();
@@ -92,5 +99,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
 
             return relatedContentMapped;
         }
+
+        #endregion Private Methods
     }
 }

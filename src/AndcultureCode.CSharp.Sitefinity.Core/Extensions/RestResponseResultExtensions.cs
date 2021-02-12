@@ -32,11 +32,11 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
             {
                 endOfError += $" using request body of {JsonConvert.SerializeObject(requestBody)}";
             }
-            if (restResponse.ErrorMessage != "")
+            if (!string.IsNullOrWhiteSpace(restResponse.ErrorMessage))
             {
                 endOfError += $" with IRestResponse.ErrorMessage of '{restResponse.ErrorMessage}'";
             }
-            if (restResponse.Content != "")
+            if (!string.IsNullOrWhiteSpace(restResponse.Content))
             {
                 endOfError += $" with IRestResponse.Content of '{restResponse.Content}'";
             }
