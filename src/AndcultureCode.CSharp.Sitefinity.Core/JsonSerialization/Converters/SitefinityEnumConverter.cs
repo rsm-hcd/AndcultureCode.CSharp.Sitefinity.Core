@@ -21,7 +21,9 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.JsonSerialization.Converters
                 throw new ArgumentException("T must be an enumerated type");
             }
 
-            writer.WriteValue(((T)value).GetHashCode().ToString());
+            long convertedValue = ((T) value).GetHashCode();
+
+            writer.WriteValue(Math.Pow(2, convertedValue - 1).ToString());
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -36,7 +38,11 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.JsonSerialization.Converters
                 return null;
             }
 
-            return Enum.Parse(typeof(T), reader.Value.ToString());
+            long convertedValue = Convert.ToInt64(reader.Value);
+
+            long sitefinityValue = (long) (Math.Log(convertedValue, 2) + 1);
+
+            return Enum.Parse(typeof(T), sitefinityValue.ToString());
         }
 
 
