@@ -330,6 +330,7 @@
     <Compile Include="Interfaces\IComment.cs" />
     <Compile Include="Interfaces\IODataConnectionSettings.cs" />
     <Compile Include="Interfaces\ISitefinityContentDto.cs" />
+    <Compile Include="JsonSerialization\Converters\SitefinityChoiceFieldConverter.cs" />
     <Compile Include="JsonSerialization\ShouldSerializeContractResolver.cs" />
     <Compile Include="Models\Configuration\ODataConnectionSettings.cs" />
     <Compile Include="Models\Content\Addresses\CoreAddressDto.cs" />
