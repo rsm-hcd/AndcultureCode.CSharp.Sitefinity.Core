@@ -1,4 +1,6 @@
 # AndcultureCode.CSharp.Sitefinity.Core
+[![Build Status](https://travis-ci.org/AndcultureCode/AndcultureCode.CSharp.Sitefinity.Core.svg?branch=main)](https://travis-ci.org/AndcultureCode/AndcultureCode.CSharp.Sitefinity.Core)
+
 Common interfaces, patterns, and utilities for Sitefinity projects used by andculture engineering
 
 ## Sitefinity Version Support
