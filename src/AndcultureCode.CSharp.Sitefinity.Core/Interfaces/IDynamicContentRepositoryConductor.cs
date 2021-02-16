@@ -1,4 +1,5 @@
 ﻿using AndcultureCode.CSharp.Core.Interfaces;
+using AndcultureCode.CSharp.Sitefinity.Core.Models.Content;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
@@ -9,6 +10,14 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Interfaces
 {
     public interface IDynamicContentRepositoryConductor
     {
+        /// <summary>
+        /// Creates a dynamic content item of the specified type T.
+        /// </summary>
+        /// <typeparam name="T">A subclass of SitefinityContent.</typeparam>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        IResult<DynamicContent> Create<T>(T item) where T : SitefinityContent;
+
         /// <summary>
         /// The provider name used by default to get dynamic content.
         /// </summary>
