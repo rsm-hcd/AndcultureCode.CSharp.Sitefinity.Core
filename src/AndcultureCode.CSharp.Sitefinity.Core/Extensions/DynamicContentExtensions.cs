@@ -149,7 +149,6 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
 
                 var contentItemType = TypeResolutionService.ResolveType(relatedDynamicContentType.ToString());
 
-                // TODO: should this be done in the constructor?
                 var dynamicModuleManager = DynamicModuleManager.GetManager(ProviderConstants.OpenAccessProvider);
                 var dynamicContentItem = dynamicModuleManager.GetDataItem(contentItemType, sitefinityContentItem.Id);
 
