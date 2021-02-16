@@ -11,10 +11,10 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Interfaces
     public interface IDynamicContentRepositoryConductor
     {
         /// <summary>
-        /// Creates a Dynamic Content item of the specified type T.
+        /// Creates a dynamic content item of the specified type T.
         /// </summary>
         /// <typeparam name="T">A subclass of SitefinityContent.</typeparam>
-        /// <param name="item">The item.</param>
+        /// <param name="item"></param>
         /// <returns></returns>
         IResult<DynamicContent> Create<T>(T item) where T : SitefinityContent;
 
