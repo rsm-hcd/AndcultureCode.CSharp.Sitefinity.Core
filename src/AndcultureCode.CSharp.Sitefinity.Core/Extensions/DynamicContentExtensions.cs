@@ -1,10 +1,17 @@
 ﻿using AndcultureCode.CSharp.Extensions;
+using AndcultureCode.CSharp.Sitefinity.Core.Attributes;
+using AndcultureCode.CSharp.Sitefinity.Core.Constants;
+using AndcultureCode.CSharp.Sitefinity.Core.Models.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Telerik.Sitefinity.DynamicModules;
 using Telerik.Sitefinity.DynamicModules.Model;
+using Telerik.Sitefinity.GenericContent.Model;
+using Telerik.Sitefinity.Model;
 using Telerik.Sitefinity.RelatedData;
+using Telerik.Sitefinity.Utilities.TypeConverters;
 
 namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
 {
@@ -82,6 +89,29 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
             return mappedItem;
         }
 
+        public static void SetPropertyInDataItem<T>(
+            this T item,
+            SitefinityMetadataAttribute metadataAttribute,
+            ref DynamicContent dataItem,
+            PropertyInfo property
+        )
+        {
+            if (!property.PropertyType.IsSubclassOf(typeof(SitefinityContent)) &&
+                !property.PropertyType.IsSubclassOf(typeof(Content)))
+            {
+                dataItem.SetValue(property.Name, item.GetType().GetProperty(property.Name)?.GetValue(item));
+            }
+            else if (property.PropertyType.IsSubclassOf(typeof(SitefinityContent)))
+            {
+                dataItem = SetPropertyInDataItemAsRelationship(
+                    item,
+                    metadataAttribute,
+                    property,
+                    dataItem
+                );
+            }
+        }
+
         #endregion Public Methods
 
         #region Private Methods
@@ -98,6 +128,44 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
             var relatedContentMapped = generic.Invoke(null, new object[] { relatedContent, includeString });
 
             return relatedContentMapped;
+        }
+
+        private static DynamicContent SetPropertyInDataItemAsRelationship<T>(
+            T item,
+            SitefinityMetadataAttribute metadataAttribute,
+            PropertyInfo property,
+            DynamicContent dataItem
+        )
+        {
+            var parentDynamicContentType = metadataAttribute.ParentDynamicContentType;
+            var sitefinityContentItem = (SitefinityContent)item.GetType().GetProperty(property.Name)?.GetValue(item);
+
+            SitefinityMetadataAttribute sitefinityType = (SitefinityMetadataAttribute)sitefinityContentItem?.GetType()
+                .GetCustomAttribute(typeof(SitefinityMetadataAttribute));
+
+            if (sitefinityType != null)
+            {
+                var relatedDynamicContentType = sitefinityType.DynamicContentType;
+
+                var contentItemType = TypeResolutionService.ResolveType(relatedDynamicContentType.ToString());
+
+                // TODO: should this be done in the constructor?
+                var dynamicModuleManager = DynamicModuleManager.GetManager(ProviderConstants.OpenAccessProvider);
+                var dynamicContentItem = dynamicModuleManager.GetDataItem(contentItemType, sitefinityContentItem.Id);
+
+                // If this property happens to be the Parent Relation, set the parent + SystemParentId. Otherwise, create the relation
+                if (parentDynamicContentType != null && relatedDynamicContentType.Equals(parentDynamicContentType))
+                {
+                    dataItem.SetParent(dynamicContentItem);
+                    dataItem.SystemParentId = dynamicContentItem.Id;
+
+                    return dataItem;
+                }
+
+                dataItem.CreateRelation(dynamicContentItem, property.Name);
+            }
+
+            return dataItem;
         }
 
         #endregion Private Methods
