@@ -314,6 +314,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\SitefinityMetadataAttribute.cs" />
     <Compile Include="Constants\ApprovalWorkflowStates.cs" />
     <Compile Include="Constants\CountryCodes.cs" />
     <Compile Include="Constants\RequestErrorKeys.cs" />
