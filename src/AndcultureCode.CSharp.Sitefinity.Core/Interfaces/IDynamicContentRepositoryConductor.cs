@@ -15,6 +15,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Interfaces
         /// </summary>
         /// <typeparam name="T">A subclass of SitefinityContent.</typeparam>
         /// <param name="item"></param>
+        /// <param name="publish">Flag denoting whether or not to publish the item after creating it. Defaults to false</param>
         /// <returns></returns>
         IResult<DynamicContent> Create<T>(T item, bool publish = false) where T : SitefinityContent;
 
