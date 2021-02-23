@@ -317,6 +317,7 @@
     <Compile Include="Attributes\SitefinityMetadataAttribute.cs" />
     <Compile Include="Constants\ApprovalWorkflowStates.cs" />
     <Compile Include="Constants\CountryCodes.cs" />
+    <Compile Include="Constants\ProviderConstants.cs" />
     <Compile Include="Constants\RequestErrorKeys.cs" />
     <Compile Include="Constants\SitefinityConstants.cs" />
     <Compile Include="Constants\SitefinityRestResponseConstants.cs" />
