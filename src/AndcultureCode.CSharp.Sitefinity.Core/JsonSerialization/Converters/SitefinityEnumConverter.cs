@@ -40,6 +40,12 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.JsonSerialization.Converters
 
             long convertedValue = Convert.ToInt64(reader.Value);
 
+            // A zero is returned from Sitefinity when the value is not valid or null.
+            if (convertedValue == 0)
+            {
+                return null;
+            }
+
             long sitefinityValue = (long) (Math.Log(convertedValue, 2) + 1);
 
             return Enum.Parse(typeof(T), sitefinityValue.ToString());
