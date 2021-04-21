@@ -76,7 +76,11 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
                     continue;
                 }
 
-                property.SetValue(mappedItem, dynamicProperty.GetValue(content));
+                // Make sure the property can be written to, i.e has a setter
+                if (property.CanWrite)
+                {
+                    property.SetValue(mappedItem, dynamicProperty.GetValue(content));
+                }
             }
 
             return mappedItem;
