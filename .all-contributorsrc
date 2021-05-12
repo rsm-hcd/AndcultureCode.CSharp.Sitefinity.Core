@@ -27,6 +27,18 @@
         "test",
         "review"
       ]
+    },
+    {
+      "login": "KevinBusch",
+      "name": "Kevin Busch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/775414?v=4",
+      "profile": "https://github.com/KevinBusch",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
