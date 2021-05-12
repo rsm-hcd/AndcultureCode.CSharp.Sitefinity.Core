@@ -48,6 +48,15 @@
       "contributions": [
         "review"
       ]
+    },
+    {
+      "login": "VonBock",
+      "name": "VonBock",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26437076?v=4",
+      "profile": "https://github.com/VonBock",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
