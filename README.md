@@ -1,8 +1,8 @@
 # AndcultureCode.CSharp.Sitefinity.Core
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
+[![Build Status](https://travis-ci.org/AndcultureCode/AndcultureCode.CSharp.Sitefinity.Core.svg?branch=main)](https://travis-ci.org/AndcultureCode/AndcultureCode.CSharp.Sitefinity.Core)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-[![Build Status](https://travis-ci.org/AndcultureCode/AndcultureCode.CSharp.Sitefinity.Core.svg?branch=main)](https://travis-ci.org/AndcultureCode/AndcultureCode.CSharp.Sitefinity.Core)
 
 Common interfaces, patterns, and utilities for Sitefinity projects used by andculture engineering
 
