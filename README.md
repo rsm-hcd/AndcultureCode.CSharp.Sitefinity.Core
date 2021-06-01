@@ -8,7 +8,7 @@ Common interfaces, patterns, and utilities for Sitefinity projects used by andcu
 
 ## Sitefinity Version Support
 - Compatibility: 13+
-- Tested with: 13.2 (build 7521)
+- Tested with: 13.3 (build 7625)
 
 ## Getting Started
 
