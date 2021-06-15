@@ -2,10 +2,9 @@
 
 namespace AndcultureCode.CSharp.Sitefinity.Core.Models.Content
 {
-    public class ChildSitefinityContent<T> : SitefinityContent
-        where T : SitefinityContent
+    public class ChildSitefinityContent<TParent> : SitefinityContent
+        where TParent : SitefinityContent
     {
-        public Guid SystemParentId { get; set; }
-        public T SystemParentItem { get; set; }
+        public TParent SystemParentItem { get; set; }
     }
 }
