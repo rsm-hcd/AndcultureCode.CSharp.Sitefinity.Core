@@ -1,0 +1,69 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Stefanie899",
+      "name": "Stefanie Leitch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37462028?v=4",
+      "profile": "https://github.com/Stefanie899",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "review"
+      ]
+    },
+    {
+      "login": "cspath1",
+      "name": "Cody Spath",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26265706?v=4",
+      "profile": "https://github.com/cspath1",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "review"
+      ]
+    },
+    {
+      "login": "KevinBusch",
+      "name": "Kevin Busch",
+      "avatar_url": "https://avatars.githubusercontent.com/u/775414?v=4",
+      "profile": "https://github.com/KevinBusch",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "review"
+      ]
+    },
+    {
+      "login": "brandongregoryscott",
+      "name": "Brandon Scott",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11774799?v=4",
+      "profile": "https://github.com/brandongregoryscott",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "VonBock",
+      "name": "VonBock",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26437076?v=4",
+      "profile": "https://github.com/VonBock",
+      "contributions": [
+        "review"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "AndcultureCode.CSharp.Sitefinity.Core",
+  "projectOwner": "AndcultureCode",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
