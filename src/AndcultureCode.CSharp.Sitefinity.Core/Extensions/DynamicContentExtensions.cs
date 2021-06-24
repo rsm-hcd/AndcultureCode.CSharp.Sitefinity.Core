@@ -122,4 +122,3 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
         #endregion Private Methods
     }
 }
-}
