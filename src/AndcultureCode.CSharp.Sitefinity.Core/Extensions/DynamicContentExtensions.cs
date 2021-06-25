@@ -92,7 +92,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
                         continue;
                     }
 
-                    var value = Enum.Parse(property.PropertyType, dynamicProperty.GetValue(content).ToString());
+                    var value = Enum.Parse(property.PropertyType, dynamicPropertyValue.ToString());
                     property.SetValue(mappedItem, value);
                 }
 
