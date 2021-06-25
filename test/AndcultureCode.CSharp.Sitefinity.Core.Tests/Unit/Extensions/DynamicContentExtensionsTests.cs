@@ -17,6 +17,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             public string TestStringProperty { get; set; }
             public DateTimeOffset TestDateTimeOffsetProperty { get; set; }
             public DateTimeOffset? TestNullableDateTimeOffsetProperty { get; set; }
+            public TestEnum TestEnumProperty { get; set; }
         }
 
         public class TestInvalidClass
@@ -35,6 +36,13 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             public string TestStringProperty { get; set; }
             public DateTimeOffset TestDateTimeOffsetProperty { get; set; }
             public DateTimeOffset? TestNullableDateTimeOffsetProperty { get; set; }
+            public string TestEnumProperty { get; set; }
+        }
+
+        public enum TestEnum
+        {
+            TestEnumWithoutNumber,
+            TestEnumWithNumber = 4
         }
 
         #endregion Test Classes
@@ -91,5 +99,48 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             mappedContent.TestPropertyWithDifferentName.ShouldBe(default(long));
             mappedContent.TestDateTimeOffsetProperty.ShouldBe(default(DateTimeOffset?));
         }
+
+        [Fact]
+        public void MapTo_Given_Enum_Type_With_Number_Value_Properties_Match_Returns_Class_With_Property_Enum_Value_Set()
+        {
+            // Arrange
+            var content = new TestDynamicClass();
+
+            content.TestEnumProperty = TestEnum.TestEnumWithNumber.GetHashCode().ToString();
+
+            // Act
+            var mappedContent = content.MapTo<TestValidClass>();
+
+            // Assert
+            mappedContent.TestEnumProperty.ShouldBe(TestEnum.TestEnumWithNumber);
+        }
+
+        [Fact]
+        public void MapTo_Given_Enum_Type_Without_Number_Value_Properties_Match_Returns_Class_With_Property_Enum_Value_Set()
+        {
+            // Arrange
+            var content = new TestDynamicClass();
+
+            content.TestEnumProperty = TestEnum.TestEnumWithoutNumber.ToString();
+
+            // Act
+            var mappedContent = content.MapTo<TestValidClass>();
+
+            // Assert
+            mappedContent.TestEnumProperty.ShouldBe(TestEnum.TestEnumWithoutNumber);
+        }
+
+        [Fact]
+        public void MapTo_Given_Enum_Type_With_Null_Property_Value_Does_Not_Throw_Exception()
+        {
+            // Arrange
+            var content = new TestDynamicClass();
+
+            content.TestEnumProperty = null;
+
+            // Act & Assert
+            var mappedContent = content.MapTo<TestValidClass>(); 
+        }
+
     }
 }
