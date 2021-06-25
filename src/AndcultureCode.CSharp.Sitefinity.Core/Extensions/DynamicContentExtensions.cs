@@ -86,6 +86,12 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Extensions
                 // so we have to handle them differently than other cases.
                 if (property.PropertyType.IsEnum && dynamicProperty.PropertyType == typeof(string))
                 {
+                    var dynamicPropertyValue = dynamicProperty.GetValue(content);
+                    if (dynamicPropertyValue == null)
+                    {
+                        continue;
+                    }
+
                     var value = Enum.Parse(property.PropertyType, dynamicProperty.GetValue(content).ToString());
                     property.SetValue(mappedItem, value);
                 }
