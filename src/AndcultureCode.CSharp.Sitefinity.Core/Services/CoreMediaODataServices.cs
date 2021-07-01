@@ -19,7 +19,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Services
         public CoreMediaODataServices(IODataConnectionSettings settings, ODataSession session) : base(settings, session) { }
 
         /// <summary>
-        /// Creates the new model and uploads the media asset using the appropriate service endpoint
+        /// Creates the new model and uploads the media asset using the filePath asset provided
         /// </summary>
         /// <param name="model"></param>
         /// <param name="filePath"></param>
@@ -56,7 +56,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Services
         }
 
         /// <summary>
-        /// Updates the exiting model and uploads the media asset using the appropriate service endpoint
+        /// Updates the exiting model and uploads and overwrites the current media asset using the filePath asset provided
         /// </summary>
         /// <param name="model"></param>
         /// <param name="filePath"></param>
