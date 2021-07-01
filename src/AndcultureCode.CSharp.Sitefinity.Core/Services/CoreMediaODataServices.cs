@@ -1,6 +1,5 @@
 ﻿using AndcultureCode.CSharp.Sitefinity.Core.Extensions;
 using AndcultureCode.CSharp.Sitefinity.Core.Interfaces;
-using AndcultureCode.CSharp.Sitefinity.Core.Models.Configuration;
 using AndcultureCode.CSharp.Sitefinity.Core.Models.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -25,7 +24,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Services
         /// <param name="model"></param>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        public virtual RestResponseResult<TModel> Upload(TModel model, string filePath)
+        public virtual RestResponseResult<TModel> UploadAndCreate(TModel model, string filePath)
         {
             var fileData = File.ReadAllBytes(filePath);
             var fileInfo = new FileInfo(filePath);
@@ -34,7 +33,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Services
             var jObject = JObject.FromObject(model);
             jObject.Add("DirectUpload", true);
 
-            var url = Settings.BaseUrl + EndpointUrl;
+            var url = $"{Settings.BaseUrl}{EndpointUrl}";
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
             request.AddHeader("authorization", "Bearer " + Session.AccessToken);
@@ -53,6 +52,43 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Services
 
             result.ResultObject = JsonConvert.DeserializeObject<TModel>(response.Content);
 
+            return result;
+        }
+
+        /// <summary>
+        /// Updates the exiting model and uploads the media asset using the appropriate service endpoint
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public virtual RestResponseResult<bool> UploadAndOverwrite(TModel model, string filePath)
+        {
+            var fileData = File.ReadAllBytes(filePath);
+            var fileInfo = new FileInfo(filePath);
+            var mimeType = MimeMapping.GetMimeMapping(filePath);
+
+            var jObject = JObject.FromObject(model);
+            jObject.Add("DirectUpload", true);
+
+            var url = $"{Settings.BaseUrl}{EndpointUrl}/{model.Id}";
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.PATCH);
+            request.AddHeader("authorization", "Bearer " + Session.AccessToken);
+            request.AddHeader("X-File-Name", fileInfo.Name);
+            request.AddHeader("X-Sf-Properties", jObject.ToString(Formatting.None));
+            request.AddParameter(mimeType, fileData, ParameterType.RequestBody);
+
+            IRestResponse response = ExecuteAuthorizedRequest(client, request);
+
+            var result = new RestResponseResult<bool>(HttpStatusCode.NoContent, response);
+            if (!result.WasExpectedStatusCode)
+            {
+                result.AddUnexpectedStatusCodeError(HttpStatusCode.NoContent, response, $"uploading {typeof(TModel).FullName}", model);
+                result.ResultObject = false;
+                return result;
+            }
+
+            result.ResultObject = true;
             return result;
         }
     }
