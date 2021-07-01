@@ -56,7 +56,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Services
         }
 
         /// <summary>
-        /// Updates the exiting model and uploads and overwrites the current media asset using the filePath asset provided
+        /// Updates the existing model and uploads and overwrites the current media asset using the filePath asset provided
         /// </summary>
         /// <param name="model"></param>
         /// <param name="filePath"></param>
