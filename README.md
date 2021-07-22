@@ -1,6 +1,6 @@
 # AndcultureCode.CSharp.Sitefinity.Core
 
-[![Build Status](https://travis-ci.org/AndcultureCode/AndcultureCode.CSharp.Sitefinity.Core.svg?branch=main)](https://travis-ci.org/AndcultureCode/AndcultureCode.CSharp.Sitefinity.Core)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+![build status](https://github.com/AndcultureCode/AndcultureCode.CSharp.Sitefinity.Core/actions/workflows/build.yaml/badge.svg)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
