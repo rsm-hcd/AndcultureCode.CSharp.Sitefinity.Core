@@ -14,5 +14,6 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Models.Content
         public Guid OriginalContentId { get; set; }
         public DateTime PublicationDate { get; set; }
         public ContentLifecycleStatus Status { get; set; }
+        public string SystemUrl { get; set; }
     }
 }
