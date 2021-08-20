@@ -42,10 +42,6 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             public DateTimeOffset TestDateTimeOffsetProperty { get; set; }
             public DateTimeOffset? TestNullableDateTimeOffsetProperty { get; set; }
             public string TestEnumProperty { get; set; }
-            [DataMember]
-            [MetadataMapping(true, false)]
-            [UserFriendlyDataType(UserFriendlyDataType.LongText)]
-            [CommonProperty]
             public Lstring TestLstringProperty { get; set; }
         }
 
