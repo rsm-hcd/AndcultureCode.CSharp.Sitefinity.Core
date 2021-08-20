@@ -1,7 +1,11 @@
 ﻿using AndcultureCode.CSharp.Sitefinity.Core.Extensions;
 using Shouldly;
 using System;
+using System.Globalization;
+using Telerik.OpenAccess;
+using Telerik.Sitefinity;
 using Telerik.Sitefinity.DynamicModules.Model;
+using Telerik.Sitefinity.Model;
 using Xunit;
 
 namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
@@ -18,6 +22,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             public DateTimeOffset TestDateTimeOffsetProperty { get; set; }
             public DateTimeOffset? TestNullableDateTimeOffsetProperty { get; set; }
             public TestEnum TestEnumProperty { get; set; }
+            public Lstring TestLstringProperty { get; set; }
         }
 
         public class TestInvalidClass
@@ -37,6 +42,11 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             public DateTimeOffset TestDateTimeOffsetProperty { get; set; }
             public DateTimeOffset? TestNullableDateTimeOffsetProperty { get; set; }
             public string TestEnumProperty { get; set; }
+            [DataMember]
+            [MetadataMapping(true, false)]
+            [UserFriendlyDataType(UserFriendlyDataType.LongText)]
+            [CommonProperty]
+            public Lstring TestLstringProperty { get; set; }
         }
 
         public enum TestEnum
@@ -68,6 +78,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             content.TestStringProperty = "Test";
             content.TestDateTimeOffsetProperty = DateTimeOffset.Now;
             content.TestNullableDateTimeOffsetProperty = DateTimeOffset.Now;
+            content.TestLstringProperty = new Lstring("test", new CultureInfo("en"));
 
             // Act
             var mappedContent = content.MapTo<TestValidClass>();
@@ -78,6 +89,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             mappedContent.TestStringProperty.ShouldBe(content.TestStringProperty);
             mappedContent.TestDateTimeOffsetProperty.ShouldBe(content.TestDateTimeOffsetProperty);
             mappedContent.TestNullableDateTimeOffsetProperty.ShouldBe(content.TestNullableDateTimeOffsetProperty);
+            mappedContent.TestLstringProperty.ShouldBe(content.TestLstringProperty);
         }
 
         [Fact]
@@ -141,6 +153,9 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             // Act & Assert
             var mappedContent = content.MapTo<TestValidClass>(); 
         }
+    }
 
+    internal class DataMemberAttribute : Attribute
+    {
     }
 }
