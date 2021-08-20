@@ -150,8 +150,4 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             var mappedContent = content.MapTo<TestValidClass>(); 
         }
     }
-
-    internal class DataMemberAttribute : Attribute
-    {
-    }
 }
