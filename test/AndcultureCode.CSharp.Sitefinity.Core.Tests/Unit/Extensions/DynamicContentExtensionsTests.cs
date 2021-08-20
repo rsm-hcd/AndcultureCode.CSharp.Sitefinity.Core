@@ -2,8 +2,6 @@
 using Shouldly;
 using System;
 using System.Globalization;
-using Telerik.OpenAccess;
-using Telerik.Sitefinity;
 using Telerik.Sitefinity.DynamicModules.Model;
 using Telerik.Sitefinity.Model;
 using Xunit;
@@ -147,7 +145,7 @@ namespace AndcultureCode.CSharp.Sitefinity.Core.Tests.Unit.Extensions
             content.TestEnumProperty = null;
 
             // Act & Assert
-            var mappedContent = content.MapTo<TestValidClass>(); 
+            var mappedContent = content.MapTo<TestValidClass>();
         }
     }
 }
